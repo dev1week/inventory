@@ -35,9 +35,18 @@ public class InventoryServiceTest {
         @DisplayName("itemId를 갖는 entity를 찾으면, inventory를 반환한다")
         @Test
         void test1000() {
+            //given
+            final String existingItemId = "2";
+            final Long stock = 10L;
 
+            //when
+            final Inventory result = sut.findByItemId(existingItemId);
 
-            throw new NotImplementedTestException();
+            //then
+            assertNotNull(result);
+            assertEquals(existingItemId, result.getItemId());
+            assertEquals(stock, result.getStock());
+
         }
     }
 
